@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Projects</title>
+  <!-- Bootstrap core CSS-->
+  <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->  
+  <link href="./vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="./front/css/sb-admin.css" rel="stylesheet">
+  <link href="./front/css/gmv-main.css" rel="stylesheet">
+  <link href="./front/css/gmv-projeto-cadastro.css" rel="stylesheet">
+
+  <!-- Bootstrap core CSS-->
+  <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->  
+  <link href="./vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="./front/css/sb-admin.css" rel="stylesheet">
+  <link href="./front/css/gmv-main.css" rel="stylesheet">
+  <link href="./front/css/gmv-projeto-cadastro.css" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top" ng-app="CrudApp">
+  
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="/inicio">Projects</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive" ng-controller="nomeUsuario">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Início">
+          <a class="nav-link" href="/inicio">
+            <i class="fa fa-fw fa-home"></i>
+            <span class="nav-link-text">Início</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Meus Projetos">
+          <a class="nav-link" href="/meus-projetos">
+            <i class="fa fa-fw fa-folder"></i>
+            <span class="nav-link-text">Meus Projetos</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Projetos">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#showProjeto" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-clipboard"></i>
+            <span class="nav-link-text">Projetos</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="showProjeto">
+            <li>
+              <a href="/projeto-consulta">
+              	<i class="fa fa-fw fa-table"></i>
+              	<span class="nav-link-text">Consulta</span>
+              </a>
+            </li>
+            <li ng-hide="usuario.tp_usuario == 1 ? false : true">
+              <a href="/projeto-cadastro">
+              	<i class="fa fa-fw fa-edit"></i>
+              	<span class="nav-link-text">Cadastro</span>
+              </a>
+            </li>
+
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Area" ng-hide="usuario.tp_usuario == 1 ? false : true">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#showArea" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-book"></i>
+            <span class="nav-link-text">Área</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="showArea">
+            <li>
+              <a href="/area-consulta">
+              	<i class="fa fa-fw fa-table"></i>
+              	<span class="nav-link-text">Consulta</span>
+              </a>
+            </li>
+            <li ng-hide="usuario.tp_usuario == 1 ? false : true">
+              <a href="/area-cadastro">
+              	<i class="fa fa-fw fa-edit"></i>
+              	<span class="nav-link-text">Cadastro</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Configuração">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#showConfig" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-gear"></i>
+            <span class="nav-link-text">Configuração</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="showConfig">
+            <li>
+              <a href="#">
+                <i class="fa fa-fw fa-edit"></i>
+                <span class="nav-link-text">Editar Perfil</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <!-- Mensage -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-fw fa-envelope"></i>
+            <span class="d-lg-none">Mensagens
+              <span class="badge badge-pill badge-primary">1 Nova</span>
+            </span>
+            <span class="indicator text-primary d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+            <h6 class="dropdown-header">Em breve!</h6>            
+        </li>
+        <!-- Alert -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-fw fa-bell"></i>
+            <span class="d-lg-none">Alertas
+              <span class="badge badge-pill badge-warning">1 Novo</span>
+            </span>
+            <span class="indicator text-warning d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+            <h6 class="dropdown-header">Em breve!</h6>
+        </li>
+        <!-- Pesquisar -->
+        <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Procurar por...">
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+        </li>
+        <!-- Pesquisar -->
+        <li class="nav-item">
+          <a class="nav-link" ng-init="setNomeUsuario()">
+            <i class="fa fa-fw fa-user"></i>
+            <span> {{usuario.nome}} </span>
+          </a>
+        </li>
+        <!-- Logout -->
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Sair
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Nav end -->
+
+  <!-- __________________________________ -->
+          <!-- ENTRADA DE DADOS -->
+  <!-- __________________________________ -->
+
+  <div class="content-wrapper">
+    <div class="container-fluid" ng-controller="CrudController">
+      <!-- Breadcrumbs-->
+      <h3> {{titulo}} </h3> 
+      <hr/>
+      
+      <form ng-init="preencheCamposProjeto()">
+        <!-- area de campos do form -->
+        <!-- Primeira linha -->
+        <div class="row row-buttons">
+          <div class="form-group-md col-md-12">
+              <button class="btn btn-primary" ng-click="novoProjeto()" ng-hide="usuario.tp_usuario == 0">
+                <i class="fa fa-fw fa-plus"></i>Novo
+              </button>
+              <button class="btn btn-warning-white" ng-click="limpaProjeto()" ng-hide="ng_editavel">
+                <i class="fa fa-fw fa-eraser"></i>Limpar
+              </button>
+              <button class="btn btn-danger" ng-click="removeProjeto()" ng-disabled="ng_excluir" ng-hide="ng_editavel">
+                <i class="fa fa-fw fa-trash-o"></i>Excluir
+              </button>
+              <button class="btn btn-dark" ng-click="abrirConsultaProjeto()">
+                <i class="fa fa-fw fa-search"></i>Consultar
+              </button>
+              <button class="btn btn-success float-md-right" ng-click="salvaProjeto()" ng-hide="usuario.tp_usuario != 0  && (projeto.id_projeto != 'Automático' && usuario.id_usuario != projeto.id_criador)">
+                <i class="fa fa-fw fa-save"></i>
+                <span ng-bind="usuario.tp_usuario == 1 ? 'Gravar' : 'Adicionar'"> </span>
+              </button>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-2">
+            <label for="id">Identificador</label>
+            <input type="text" class="form-control" name="id" ng-model="projeto.id_projeto" disabled>
+          </div>
+
+          <div class="form-group col-md-7">
+            <label for="titulo">Título</label>
+            <input type="text" class="form-control" name="titulo" placeholder="Insira o título" ng-model="projeto.titulo" maxlength="60" ng-disabled="ng_editavel">
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="prazo">Prazo</label>
+            <input type="date" class="form-control" id="datepicker" name="prazo" placeholder="Insira o prazo" ng-model="projeto.prazo" ng-disabled="ng_editavel">
+          </div>     
+        </div>
+
+        <!-- Segunda linha -->
+        <div class="row">
+          <div class="form-group col-md-5">
+            <label for="tema">Tema</label>
+            <input type="text" class="form-control" name="tema" placeholder="Insira o tema" ng-model="projeto.tema" maxlength="60" ng-disabled="ng_editavel">
+          </div>
+
+          <div class="form-group col-md-5" ng-init="consultaArea()">
+            <label for="area">Áreas relacionadas</label>
+            <select class="form-control" ng-model="projeto.id_area" ng-disabled="ng_editavel">
+              <option ng-repeat="area in listaAreas" ng-value="{{area.id_area}}"> {{area.ds_area}} </option>
+            </select> 
+          </div>
+          
+          <div class="form-group col-md-2">
+            <label for="area">Privacidade</label>
+            <select class="form-control" ng-model="projeto.privacidade" ng-disabled="ng_editavel">
+              <option ng-value="false">Público</option>
+              <option ng-value="true">Privado</option>
+            </select> 
+          </div>
+        </div>
+
+        <!-- Ultima linha -->    
+        <div class="row">    
+          <div class="form-group col-md-12">
+            <label for="descricao">Descrição</label>
+            <textarea type="text-area" class="form-control form-area" maxlength="200" ng-model="projeto.ds_projeto" placeholder="Descreva todo as informações necessárias para a realização do projeto" ng-disabled="ng_editavel"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /.container-fluid-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Projects 2017</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-controller="controlLogout">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Pronto para sair?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Selecione "Sair" se você deseja finalizar a sessão atual.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" ng-click="logout()">Sair</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.Logout Modal-->
+
+    <!-- Angular -->
+    <script src="./vendor/angular/angular.min.js"></script>
+    <script src="./vendor/angular/angular-cookies.min.js"></script>
+    <script src="./front/controller/gmv-crud.js"> </script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="./vendor/jquery/jquery.min.js"></script>
+    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="./vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="./js/sb-admin.min.js"></script>
+    <!-- Alert -->
+    <script src="./vendor/jquery/jquery.bootstrap-growl.min.js"></script>
+    
+    <link href="./vendor/gijgo/gijgo.css" rel="stylesheet">
+    <script src="./vendor/gijgo/gijgo.js"></script>
+  </div>
+  <!-- /.content-wrapper-->
+</body>
+
+</html>

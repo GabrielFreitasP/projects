@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="CadastroApp">
+	<head>
+		<meta charset="utf-8"/>
+  		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<title> Projects </title>
+
+		<!-- Bootstrap core CSS -->
+	    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	    <!-- Custom styles for this template -->
+		<link href="./assets/css/main.css" rel="stylesheet">
+		<link href="./vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="./front/css/gmv-cadastro2.css" rel="stylesheet">		
+
+		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+	    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	</head>
+	
+	<body ng-controller="CadastroController">
+        <div class="container" id="div-btn-voltar">
+              <a href="/cadastros"> <button type="button" class="btn btn-outline-dark">Voltar</button> </a>
+		</div>
+		<div class="container container-center" >
+			<div class="container">				
+				<form name="form-cadastro">
+					<h1>Cadastre-se como empresa</h1>
+					<div class="form-group">
+						<label class="form-control-label col-sm-6"> Nome do usuário: </label>
+						<div class="col-sm-6"> 
+							<input type="text" class="form-control" ng-model="empresa.nome_usuario" maxlength="30"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-control-label col-sm-6" for="input-email"> Endereço de e-mail: </label>
+						<div class="col-sm-6"> 
+							<input type="email" class="form-control" ng-model="empresa.email" id="input-email" maxlength="60"/> 
+						</div>
+					</div>				
+					<div class="form-group">
+						<label class="form-control-label col-sm-6"> Senha: </label>
+						<div class="col-sm-6"> 
+							<input type="password" class="form-control" ng-model="empresa.senha" maxlength="32"/>
+						</div>
+					</div>					
+					<div class="form-group">
+						<label class="form-control-label col-sm-6"> Nome da Empresa: </label>
+						<div class="col-sm-6"> 
+							<input type="text" class="form-control" ng-model="empresa.nome_empresa" maxlength="60"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-control-label col-sm-6"> CNPJ: </label>
+						<div class="col-sm-6"> 
+							<input type="text" class="form-control" ng-model="empresa.cnpj" maxlength="14"/>
+						</div>
+					</div>					
+					<div class="form-group">
+						<div class="col-sm-6"> 
+							<button type="button" class="btn btn-success" ng-click="cadastraEmpresa()">Cadastrar</button>
+						</div>
+					</div>
+				</form>					
+			</div>
+		</div>
+		
+		<!-- JavaScript -->
+	    <script src="./vendor/jquery/jquery.min.js"></script>
+		<script src="./vendor/modernizr/modernizr.custom.js"></script>
+	    <script src="./vendor/popper/popper.min.js"></script>
+	    <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
+	    
+		<!-- Alert -->
+	    <script src="./vendor/jquery/jquery.bootstrap-growl.min.js"></script>
+
+		<!-- Angular -->
+		<script src="./vendor/angular/angular.min.js"></script>
+		<script src="./front/controller/gmv-cadastro.js"> </script>
+		
+	</body>
+</html>

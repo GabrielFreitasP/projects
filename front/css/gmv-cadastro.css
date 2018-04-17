@@ -1,0 +1,38 @@
+body {
+   	background: url('../../img/fundo_cadastro.jpeg') no-repeat center center scroll;
+}
+
+.btn-cadastro {
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 20px; 
+    height: 60px;
+    width: 200px;
+    font-size: 18px; 
+}
+
+#div-btn-voltar {
+	text-align: right;
+	margin-top: 2%;
+	margin-bottom: 10%;
+}
+
+.align-center {
+	text-align: center;
+}
+
+.max-info {
+	max-width: 70%;
+}
+
+h1 {
+	font-size: 3.5rem;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 1.5rem;
+	font-weight: 100;
+	padding-top: 10px; 
+	padding-bottom: 20px; 
+}

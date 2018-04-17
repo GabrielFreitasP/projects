@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Projects</title>
+  <!-- Bootstrap core CSS-->
+  <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="./vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="./vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="./front/css/sb-admin.css" rel="stylesheet">
+  <link href="./front/css/gmv-main.css" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top" ng-app="CrudApp">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="/inicio">Projects</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive" ng-controller="nomeUsuario">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Início">
+          <a class="nav-link" href="/inicio">
+            <i class="fa fa-fw fa-home"></i>
+            <span class="nav-link-text">Início</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Meus Projetos">
+          <a class="nav-link" href="/meus-projetos">
+            <i class="fa fa-fw fa-folder"></i>
+            <span class="nav-link-text">Meus Projetos</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Projetos">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#showProjeto" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-clipboard"></i>
+            <span class="nav-link-text">Projetos</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="showProjeto">
+            <li>
+              <a href="/projeto-consulta">
+              	<i class="fa fa-fw fa-table"></i>
+              	<span class="nav-link-text">Consulta</span>
+              </a>
+            </li>
+            <li ng-hide="usuario.tp_usuario == 1 ? false : true">
+              <a href="/projeto-cadastro">
+              	<i class="fa fa-fw fa-edit"></i>
+              	<span class="nav-link-text">Cadastro</span>
+              </a>
+            </li>
+
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Area" ng-hide="usuario.tp_usuario == 1 ? false : true">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#showArea" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-book"></i>
+            <span class="nav-link-text">Área</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="showArea">
+            <li>
+              <a href="/area-consulta">
+              	<i class="fa fa-fw fa-table"></i>
+              	<span class="nav-link-text">Consulta</span>
+              </a>
+            </li>
+            <li>
+              <a href="/area-cadastro">
+              	<i class="fa fa-fw fa-edit"></i>
+              	<span class="nav-link-text">Cadastro</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Configuração">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#showConfig" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-gear"></i>
+            <span class="nav-link-text">Configuração</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="showConfig">
+            <li>
+              <a href="#">
+                <i class="fa fa-fw fa-edit"></i>
+                <span class="nav-link-text">Editar Perfil</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <!-- Mensage -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-fw fa-envelope"></i>
+            <span class="d-lg-none">Mensagens
+              <span class="badge badge-pill badge-primary">1 Nova</span>
+            </span>
+            <span class="indicator text-primary d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+            <h6 class="dropdown-header">Em breve!</h6>            
+        </li>
+        <!-- Alert -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-fw fa-bell"></i>
+            <span class="d-lg-none">Alertas
+              <span class="badge badge-pill badge-warning">1 Novo</span>
+            </span>
+            <span class="indicator text-warning d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+            <h6 class="dropdown-header">Em breve!</h6>
+        </li>
+        <!-- Pesquisar -->
+        <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Procurar por...">
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+        </li>
+        <!-- Pesquisar -->
+        <li class="nav-item">
+          <a class="nav-link" ng-init="setNomeUsuario()">
+            <i class="fa fa-fw fa-user"></i>
+            <span> {{usuario.nome}} </span>
+          </a>
+        </li>
+        <!-- Logout -->
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Sair
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Nav end -->
+
+  <!-- __________________________________ -->
+          <!-- ENTRADA DE DADOS -->
+  <!-- __________________________________ -->
+
+  <div class="content-wrapper" ng-controller="CrudController" data-ng-init="consultaArea()">
+    <div class="container-fluid">
+      <h3>Consulta de Área</h3>
+      <hr>
+      <!-- Example DataTables Card-->
+      <div class="row" ng-hide="usuario.tp_usuario == 1 ? false : true">
+          <div class="form-group col-md-12">
+            <a href="/area-cadastro">
+              <button class="btn btn-primary">
+                <i class="fa fa-fw fa-plus"></i> Novo Cadastro
+              </button>
+            </a>
+          </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Projetos
+          <a class="fa fa-refresh float-md-right" href="/area-consulta"></a>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Descrição</th>
+                  <th>Cursos</th>
+                  <th>Detalhes</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Id</th>
+                  <th>Descrição</th>
+                  <th>Cursos</th>
+                  <th>Detalhes</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <tr ng-repeat="area in listaAreas">
+                  <td>{{area.id_area}}</td>
+                  <td>{{area.ds_area}}</td>
+                  <td>{{area.cursos}}</td>
+                  <td>
+                    <span ng-click="editarArea($index)" class="fa fa-fw fa-edit"></span>
+                  </td>
+                </tr>                
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Atualizado hoje às {{time}}</div>
+      </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Projects 2017</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-controller="controlLogout">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Pronto para sair?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Selecione "Sair" se você deseja finalizar a sessão atual.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" ng-click="logout()">Sair</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Angular -->
+    <script src="./vendor/angular/angular.min.js"></script>
+    <script src="./vendor/angular/angular-cookies.min.js"></script>
+    <script src="./front/controller/gmv-crud.js"> </script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="./vendor/jquery/jquery.min.js"></script>
+    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="./vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="./vendor/datatables/jquery.dataTables.js"></script>
+    <script src="./vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="./js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="./js/sb-admin-datatables.min.js"></script>
+    <!-- Alert -->
+    <script src="./vendor/jquery/jquery.bootstrap-growl.min.js"></script>
+    <!-- Table bug -->
+    <script>
+      $('#dataTable').dataTable({"bInfo":false
+        ,"bLengthChange":false
+        ,"bFilter":false
+        ,"bPaginate":true
+        ,"bSort": false  
+        ,"oLanguage": {
+          "sEmptyTable": "Nenhum registro encontrado",
+          "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+          "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+          "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+          "sInfoPostFix": "",
+          "sInfoThousands": ".",
+          "sLengthMenu": "_MENU_ Resultados por página",
+          "sLoadingRecords": "Carregando...",
+          "sProcessing": "Processando...",
+          "sZeroRecords": "Nenhum registro encontrado",
+          "sSearch": "Pesquisar",
+          "oPaginate": {
+              "sNext": "Próximo",
+              "sPrevious": "Anterior",
+              "sFirst": "Primeiro",
+              "sLast": "Último"
+          },
+          "oAria": {
+              "sSortAscending": ": Ordenar colunas de forma ascendente",
+              "sSortDescending": ": Ordenar colunas de forma descendente"
+          }
+        },
+        "columns": [
+        { "width": "1%" },
+        { "width": "30%" },
+        { "width": "100%" },
+        { "width": "20%" }
+      ]
+      });
+    </script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+	  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<title> Projects - Cadastro de Áreas de Projeto </title>
+
+		<!-- Bootstrap core CSS -->
+	    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	    <!-- Custom styles for this template -->
+		<link href="./assets/css/main.css" rel="stylesheet">
+		<link href="./vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="./front/css/gmv-login.css" rel="stylesheet">
+
+		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+
+		<!-- Angular -->
+		<script src="./vendor/angular/angular.min.js"></script>
+		<script src="./vendor/angular/angular-cookies.min.js"></script>
+		<script src="./front/controller/gmv-crud.js"> </script>
+	</head>
+	
+	<body ng-app="CrudApp">
+        <div class="container" id="div-btn-voltar">
+              <a href="/index"> <button type="button" class="btn btn-outline-dark">Voltar</button> </a>
+		</div>
+		<div class="container container-center" ng-controller="LoginController">
+			<div class="container">				
+				<form class="form-horizontal">
+					<h1>Entrar no Projects</h1>
+					<div class="form-group">
+						<div class="">
+							<label class="control-label col-sm-6">Endereço de e-mail: </label>
+						</div>
+						<div class="col-sm-6"> 
+							<input type="email" class="form-control" ng-model="usuario.email" placeholder="Insira um e-mail" ng-enter="entrar()"/>
+						</div>
+					</div>					
+					<div class="form-group">
+						<label class="control-label col-sm-6"> Senha: </label>
+						<div class="col-sm-6"> 
+							<input type="password" class="form-control" ng-model="usuario.senha" placeholder="Insira uma senha" ng-enter="entrar()"/>
+						</div>
+					</div>								
+					<div class="form-group">
+						<div class="col-sm-6"> 
+							<button type="button" class="btn btn-success" ng-click="entrar()" id="btn-entrar">Entrar</button>
+							<a href="/cadastros" id="link-cadastrar">Não tenho uma conta</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	    <!-- JavaScript -->
+	    <script src="./vendor/jquery/jquery.min.js"></script>
+		<script src="./vendor/modernizr/modernizr.custom.js"></script>
+	    <script src="./vendor/popper/popper.min.js"></script>
+		<script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
+		
+		<!-- Alert -->
+	    <script src="./vendor/jquery/jquery.bootstrap-growl.min.js"></script>
+	</body>
+</html>
